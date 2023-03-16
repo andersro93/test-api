@@ -16,6 +16,7 @@
   
   <ItemGroup>
     <Using Include="FastEndpoints" />
+    <Using Include="FastEndpoints.Swagger" />
   </ItemGroup>
 
 </Project>
