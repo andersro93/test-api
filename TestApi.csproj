@@ -4,6 +4,10 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ContainerBaseImage>mcr.microsoft.com/dotnet/aspnet:7.0</ContainerBaseImage>
+    <ContainerRuntimeIdentifier>linux-x64</ContainerRuntimeIdentifier>
+    <ContainerImageName>andersro93/test-api</ContainerImageName>
+    <ContainerImageTag>latest</ContainerImageTag>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,12 +15,25 @@
     <PackageReference Include="FastEndpoints.Security" Version="5.8.0" />
     <PackageReference Include="FastEndpoints.Swagger" Version="5.8.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.0" />
+    <PackageReference Include="Microsoft.NET.Build.Containers" Version="0.3.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
   
   <ItemGroup>
     <Using Include="FastEndpoints" />
     <Using Include="FastEndpoints.Swagger" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ContainerPort Include="80" Type="tcp" />
+    <ContainerEnvironmentVariable Include="ASPNETCORE_URLS" Value="http://0.0.0.0:80" />
+    <ContainerLabel Include="org.opencontainers.image.source" Value="https://github.com/andersro93/test-api" />
+    <ContainerLabel Include="org.opencontainers.image.description" Value="A simple API that uses the Test-IDP project" />
+    <ContainerLabel Include="org.opencontainers.image.licenses" Value="MIT" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include=".github\workflows\build-container.yaml" />
   </ItemGroup>
 
 </Project>
