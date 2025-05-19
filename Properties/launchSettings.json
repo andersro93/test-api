@@ -9,7 +9,7 @@
       "applicationUrl": "http://localhost:5273",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "OIDC_ADDRESS": "https://test-idp.ros-nett.com/.well-known/openid-configuration"
+        "OIDC_ADDRESS": "https://test-idp.netthosting.cloud/.well-known/openid-configuration"
       }
     }
   }
